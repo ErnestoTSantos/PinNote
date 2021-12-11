@@ -30,7 +30,7 @@ DEBUG = False
 
 # ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['notespin.herokuapp.com']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
