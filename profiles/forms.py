@@ -4,13 +4,33 @@ from django.contrib.auth.models import User
 from . import models
 
 class UserFormCreate(forms.ModelForm):
+    first_name = forms.CharField(
+        label= 'Primeiro nome',
+        help_text= 'Digite seu primeiro nome. Ex: João'
+    )
+
+    last_name = forms.CharField(
+        label= 'Sobrenome',
+        help_text= 'Digite seu sobrenome. Ex: Pereira Silva'
+    )
+
+    username = forms.CharField(
+        help_text= 'DIgite seu nome de usuário. Ex: TheDoctor'
+    )
+
+    email = forms.EmailField(
+        label= 'E-mail',
+        help_text= 'Digite seu e-mail aqui. Ex: exemploEmail@email.com'
+    )
+
     password = forms.CharField(
+        label= 'Senha',
         widget=forms.PasswordInput(),
     )
 
     password_2 = forms.CharField(
         widget=forms.PasswordInput(),
-        label='Confirmation password'
+        label='Confirmação de senha'
     )
 
     def __int__(self, user=None, *args, **kwargs):
@@ -64,6 +84,50 @@ class UserFormCreate(forms.ModelForm):
             raise(forms.ValidationError(validation_error_msgs))
 
 class ProfileForm(forms.ModelForm):
+    date = forms.DateField(
+        label= 'Nascimento',
+        help_text= 'Formato da data YYYY-MM-DD'
+    )
+
+    cpf = forms.CharField(
+        help_text= 'Colocar CPF sem pontuação'
+    )
+
+    country = forms.ChoiceField(
+        label= 'Estado',
+        help_text= 'Selecione seu estado',
+        choices=(
+            ('DT', 'Default'),
+            ('AC', 'Acre'),
+            ('AL', 'Alagoas'),
+            ('AP', 'Amapá'),
+            ('AM', 'Amazonas'),
+            ('BA', 'Bahia'),
+            ('CE', 'Ceará'),
+            ('DF', 'Distrito Federal'),
+            ('ES', 'Espírito Santo'),
+            ('GO', 'Goiás'),
+            ('MA', 'Maranhão'),
+            ('MT', 'Mato Grosso'),
+            ('MS', 'Mato Grosso do Sul'),
+            ('MG', 'Minas Gerais'),
+            ('PA', 'Pará'),
+            ('PB', 'Paraíba'),
+            ('PR', 'Paraná'),
+            ('PE', 'Pernambuco'),
+            ('PI', 'Piauí'),
+            ('RJ', 'Rio de Janeiro'),
+            ('RN', 'Rio Grande do Norte'),
+            ('RS', 'Rio Grande do Sul'),
+            ('RO', 'Rondônia'),
+            ('RR', 'Roraima'),
+            ('SC', 'Santa Catarina'),
+            ('SP', 'São Paulo'),
+            ('SE', 'Sergipe'),
+            ('TO', 'Tocantins'),
+        )
+    )
+
     class Meta:
         model = models.Profile
         fields = ('date', 'cpf', 'country')
@@ -71,15 +135,35 @@ class ProfileForm(forms.ModelForm):
 
 
 class UserFormUpdate(forms.ModelForm):
+    first_name = forms.CharField(
+        label= 'Primeiro nome',
+        help_text= 'Digite seu primeiro nome. Ex: João'
+    )
+
+    last_name = forms.CharField(
+        label= 'Sobrenome',
+        help_text= 'Digite seu sobrenome. Ex: Pereira Silva'
+    )
+
+    username = forms.CharField(
+        help_text= 'DIgite seu nome de usuário. Ex: TheDoctor'
+    )
+
+    email = forms.EmailField(
+        label= 'E-mail',
+        help_text= 'Digite seu e-mail aqui. Ex: exemploEmail@email.com'
+    )
+
     password = forms.CharField(
+        label= 'Senha',
         required=False, 
         widget=forms.PasswordInput(),
     )
 
     password_2 = forms.CharField(
+        label= 'Confirmação de senha',
         required=False,
         widget=forms.PasswordInput(),
-        label='Confirmation password'
     )
 
     def __init__(self, user=None, *args, **kwargs):
