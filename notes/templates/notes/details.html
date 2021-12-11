@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-lg">
+        <div class="text-center mt-lg mt-4 mb-4">
+            <h1>{{ notes.noteName }}</h1>
+        </div>
+        <br>
+        <div class="card text-center mt-lg mb-4">
+            <h3 class="mt-2">Data de criação:</h3>
+            <p class="text-justify pl-3 pr-3">{{ notes.createDate }}</p>
+        </div>
+        <br>
+        <div class="card text-center mt-lg mb-4">
+            <h3 class="mt-2">Descrição da tarefa: </h3>
+            <p class="text-justify pl-3 pr-3">{{ notes.description }}</p>
+        </div>
+        <br>
+        <div class="card text-center mt-lg mb-5">
+            <h3 class="mt-2">Informações extras para a tarefa:</h3>
+            <p class="text-justify pl-3 pr-3">{{ notes.noteInformation }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

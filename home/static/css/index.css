@@ -1,0 +1,21 @@
+body{
+    background: #F5F5DC;
+}
+
+.lilac{
+    background: #CCA9DD;
+    box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.3);
+}
+
+.lilac-foot{
+    background: #CCA9DD;
+    box-shadow: 0px -5px 15px 5px rgba(0,0,0,0.3);
+}
+
+.brown{
+    color: #964B00;
+}
+
+.btn-brown{
+    background-color: #964B00;
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-lg">
+    <h4 class="mt-5">Login</h4>
+    <p class="space mt-4">Se você já tem um cadastro, realize o login abaixo:</p>
+
+    <form method="post" action="{% url 'profile:login' %}" class="pt-2 pb-5">
+        {% csrf_token %}
+        <div class="form-group ">
+          <label for="InputUser" class="mt-1">User</label>
+          <input name="username" type="text" class="form-control" id="InputUser" aria-describedby="UserHelp" placeholder="Digite seu nome de usuário">
+        </div>
+        <div class="form-group mt-5">
+          <label for="exampleInputPassword1" class="mb-2">Password</label>
+          <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+        </div>
+        <button type="submit" class="btn btn-brown btn-block btn-lg text-light mt-5 mb-5">Entrar</button>
+    </form>
+</div>
+{% endblock %}

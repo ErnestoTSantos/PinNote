@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <picture class="col-md col-6">
+                <h3 class="text-justify">Ernesto Terra dos Santos</h3>
+                <source srcset="{% static 'images/Linked.jpeg' %}" type="image/svg+xml">
+                <img src="{% static 'images/Linked.jpeg' %}" class="img-fluid img-thumbnail mt-3" height="300" width="300" alt="Imagem do desenvolvedor">
+            </picture>
+            <h6 class="text-justify mt-4">Projeto desenvolvido para trabalhar melhor as funções do Django, visualizando melhores formas de criar projetos e organizar os mesmos.</h6>
+            <a href="https://github.com/ErnestoTSantos" class="text-dark" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ernesto-santos-324a32215/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/ernesto_terra/" class="text-warning" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="col-md col-6">
+            <h4 class="mt-4">Sobre o desenvolvedor:</h4>
+            <p class="text-justify">
+                Tenho 18 anos, iniciei com python há cerca de 10 meses e sempre me incentivei a procurar desafios.
+                Após entrar na área decidi me focar no desenvolvimento web, e optei por aprender e me aperfeiçoar nos
+                conceitos do Django. Assim me desafiando a fazer projetos mais complexos e que me façam realizar um back-end
+                mais complexo e completo, melhorando projeto a projeto.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

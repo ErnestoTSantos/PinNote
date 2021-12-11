@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center mt-5 mb-4">Lista de tarefas</h1>
+    <div class="list-group mb-5">
+    {% if notes %}
+    {% for note in notes %}
+        <div class="list-group-item">
+            <a class="ml-3" href="{% url 'notes:update' %}?vid={{ note.id }}">
+                <i class="fas fa-wrench"></i>
+            </a>
+            <a class="ml-3" href="{% url 'notes:delete' %}?vid={{ note.id }}">
+                <i class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+            </a>
+            <a href="{{ note.slug }}" class="text-dark col-md col-8">{{ note.noteName }}</a>
+        </div>
+    {% endfor %}
+    {% else %}
+        <div class="container text-center">
+            <h3>Você precisa adicionar notas para que elas apareçam aqui!</h3>
+            <br>
+            <h3>&#128525</h3>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

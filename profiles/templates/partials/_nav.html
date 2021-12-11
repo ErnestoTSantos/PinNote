@@ -1,0 +1,50 @@
+<nav class="navbar navbar-dark navbar-expand-lg lilac">
+    <a class="navbar-brand royal" href="{% url 'home:index' %}">Pin Note</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home:index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            {% if not request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home:informations' %}">Informações do projeto</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home:devInformations' %}">Informações do desenvolvedor</a>
+            </li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link royal" href="{% url 'notes:notes' %}">Notas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'notes:create' %}">Criar nota</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Informações de conta
+                    </a>
+                    <div class="dropdown-menu nav-item" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'profile:update' %}">Atualizar dados</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'profile:logout' %}">Log out</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile:signin' %}">Criar uma conta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile:login' %}">Fazer login</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
